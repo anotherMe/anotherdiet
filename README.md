@@ -4,7 +4,7 @@
 
 After applying migrations, remember to load data into database:
 
-  python manage.py loaddata
+`python manage.py loaddata`
 
 Above command will load data from your **fixtures** directory inside your database.
 
