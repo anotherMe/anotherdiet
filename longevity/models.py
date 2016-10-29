@@ -41,3 +41,6 @@ class Alimento(models.Model):
 	beta_carotene = models.FloatField() # Beta carotene eq
 	vitamina_E = models.FloatField() # Vit E
 	vitamina_D = models.FloatField() # Vit D
+
+	def __str__(self):
+		return self.nome
