@@ -1,11 +1,11 @@
 from django.conf.urls import url, include
-from longevity.api import AlimentoResource
+from longevity.api import FoodResource
 from . import views
 
 
-alimento_resource = AlimentoResource()
+food_resource = FoodResource()
 
 urlpatterns = [
-    url(r'^api/', include(alimento_resource.urls)),
+    url(r'^api/', include(food_resource.urls)),
     url(r'^$', views.index, name='index'),
 ]

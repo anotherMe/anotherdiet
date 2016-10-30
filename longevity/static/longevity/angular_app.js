@@ -7,15 +7,15 @@
         $resourceProvider.defaults.stripTrailingSlashes = false;
     }]);
     
-    app.factory("Alimento", function($resource) {
-        return $resource("/longevity/api/alimento/:id");
+    app.factory("Food", function($resource) {
+        return $resource("/longevity/api/food/:id");
     });
 
-    app.controller('MainController', ['$http', 'Alimento', function($http, Alimento) {
+    app.controller('MainController', ['$http', 'Food', function($http, Food) {
 
         var t = this;
 
-        Alimento.get({ id: 1 }, function(data) {
+        Food.get({ id: 1 }, function(data) {
             t.foo = data;
         });
         
