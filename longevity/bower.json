@@ -1,0 +1,17 @@
+{
+  "name": "anotherdiet",
+  "homepage": "https://github.com/anotherMe/anotherdiet",
+  "description": "",
+  "main": "",
+  "license": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "static/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

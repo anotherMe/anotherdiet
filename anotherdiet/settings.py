@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-	'longevity.apps.LongevityConfig',
+    'longevity.apps.LongevityConfig',
+    'tastypie',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

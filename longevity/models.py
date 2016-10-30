@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Alimento(models.Model):
+	
 	nome = models.CharField(max_length=100)
 	parte_edibile = models.FloatField() # Parte edibile (g)
 	energia_Kcal = models.FloatField() # Energia Kcal	
@@ -42,5 +43,8 @@ class Alimento(models.Model):
 	vitamina_E = models.FloatField() # Vit E
 	vitamina_D = models.FloatField() # Vit D
 
+	class Meta:
+		verbose_name_plural = "alimenti"
+	
 	def __str__(self):
 		return self.nome
