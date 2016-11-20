@@ -1,83 +1,104 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="it-IT" ng-app="longevity_diet">
-    
-  <head>
-      
+
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Oh no, another diet !</title>
 
-	<!-- Bootstrap - Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{% static "longevity/bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+    <!-- Bootstrap - Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'longevity/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
 
-	<!-- Bootstrap - Optional theme -->
-    <link rel="stylesheet" href="{% static "longevity/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" %}">
-    
+    <!-- Bootstrap - Optional theme -->
+    <link rel="stylesheet" href="{% static 'longevity/bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+
     <!-- AngularJS -->
-	<script type="text/javascript" src="{% static "longevity/bower_components/angular/angular.min.js" %}" ></script>
-	<script type="text/javascript" src="{% static "longevity/bower_components/angular-resource/angular-resource.min.js" %}" ></script>
-	<script type="text/javascript" src="{% static "longevity/angular_app.js" %}" ></script>
+    <script type="text/javascript" src="{% static 'longevity/bower_components/angular/angular.min.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'longevity/bower_components/angular-resource/angular-resource.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'longevity/app/longevity.js' %}" ></script>
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static "longevity/css/main.css" %}">
+    <link rel="stylesheet" href="{% static 'longevity/css/main.css' %}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-  </head>
-  
-  <body>
-    
-    {% verbatim angular_code_block %}
-    
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+
+</head>
+
+<body>
+
+{% verbatim angular_code_block %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Oh no, another diet !</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Oh no, another diet !</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    
-    <div class="container">
-        
-        <div ng-controller="MainController as ctrl">
-            
-            <h1>Hello, {{ ctrl.foo.nome }}</h1>
-            <button ng-show="ctrl.foo.canSpin"> Spin !</button>
-            <button ng-show="ctrl.foo.canRoll"> Roll !</button>
-            
-        </div>
-        
     </div>
-    
-    {% endverbatim angular_code_block %}
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="{% static "longevity/bower_components/jquery/dist/jquery.min.js" %}"></script>
-    
-	<!-- Bootstrap - Latest compiled and minified JavaScript -->
-	<script type="text/javascript" src="{% static "longevity/bower_components/bootstrap/dist/js/bootstrap.min.js" %}" ></script>
-    
-  </body>
+</nav>
+
+<div class="container">
+
+    <div ng-controller="MainController as ctrl">
+
+        <div class="h-separator"></div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." data-ng-model="searchString">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" data-ng-click="search()">Search</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+
+        <div class="h-separator"></div>
+
+        <div id="foodList">
+            <div data-ng-repeat="food in foodList">
+                <span><b>{{ food.nome }}</b></span>
+                <span>{{ food.resource_uri }}</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endverbatim angular_code_block %}
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="{% static 'longevity/bower_components/jquery/dist/jquery.min.js' %}"></script>
+
+<!-- Bootstrap - Latest compiled and minified JavaScript -->
+<script type="text/javascript"
+        src="{% static 'longevity/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+</body>
 </html>
